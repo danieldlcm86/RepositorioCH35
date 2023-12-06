@@ -1,0 +1,244 @@
+:root {
+    /* 
+    Enfoque de diseño basado en sistemas para establecer reglas y patrones escalables y reutilizables.
+    Se personalizan variables para acceder a cualquier valor de una propiedad mediante la pseudoclase ":root" con la sintaxis --nombre-variable 
+    */
+    --font-primary: 'Poppins', sans-serif;
+    --color-primary: #A60311;
+    --color-secondary: #D9042B;
+    --color-text-primary: #D9CCB4;
+    --color-text-secondary: #D98E04;
+    --color-background: #590219;
+    --color-light: #F2F2F2;
+    --color-dark: #070C26;
+}
+
+body{
+    background-color: var(--color-background);
+    color: var(--color-light);
+    font-family: var(--font-primary);
+}
+
+.position{
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-dark);
+}
+
+/* La posición estática es la posición por default del html, no se afecta por top, bottom, left ni right de ningún */
+#static {
+    top:5000px;
+    position:static;
+    background-color: var(--color-text-secondary);
+}
+
+/* Es posicionado de forma relativa al elemento anterior o posición original y si permite movimiento mediante propiedades top, bottom, left, right */
+#relative {
+    position: relative;
+    top: 5000px;
+    left: 200px;
+    background-color: var(--color-primary);
+}
+
+/* Se posiciona de forma relativa a su ancentro más cercano y no con respecto al viewport */
+#absolute {
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+/* Este será el ancestro sobre el cual se moverá el hijo */
+#ancestro{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-dark);
+    border: solid var(--color-light) 1px;
+}
+
+/* Nos permite mantener el elemento de manera fija en el viewport */
+/* #fixed {
+    left: 350px;
+    top: 500px;
+    position: fixed;
+    background-color:cadetblue;
+} */
+
+#chat {
+    /* border: solid var(--color-light) 1px; */
+    position: fixed;
+    top: 550px;
+    left: 400px;
+    width: 60px;
+    height: 60px;
+}
+
+#whatsapp-icon {
+    width: 100%;
+}
+
+.display-inline {
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-text-primary);
+    color: var(--color-dark);
+    text-align: center;
+    margin: 2px;
+}
+
+#display-1, #display-2 {
+    display: inline;
+}
+
+.display-block {
+    /* display: block; */
+    display: inline-block;
+
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-secondary);
+    text-align: center;
+    margin: 2px;
+}
+
+@media (max-width: 720px) {
+    .display-none {
+        display: none;
+    }
+}
+
+/* Display flex. Me permite trabajar de manera flexible con elementos anidados dentro de un ancestro. El flexbox se aplica en el container y tiene efecto sobre los hijos.
+Por default, la dirección de flex es en filas (row).
+Vamos a poder acceder a diversas propiedades para modificar el comportamiento de los elementos.
+    > - flex-direction: column, column-reverse, row, row-reverse
+    > - flex-wrap: wrap, nowrap, wrap-reverse
+    > - justify-content: center, flex-start, flex-end, space between, space-around
+    > - align-item: start, end, center
+    > - align-self: flex-start, flex-end
+*/
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: end; */
+
+    width: auto;
+    height: 350px;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--color-text-secondary);
+
+}
+
+.display-flex {
+    width: 100px;
+    height: 80px;
+    margin: 5px;
+    padding: 2px;
+    text-align: center;
+    background-color: var(--color-background);
+    border-radius: 6px;
+}
+
+.display-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-light);
+}
+
+/* Grid layout
+Elementos de una cuadrícula grid: contenedor, items, celdas, area
+display: grid;
+*/
+
+.grid {
+    display: grid;
+    grid-template-columns: auto;
+    /* grid-template-rows: auto; */
+    gap: 20px;
+
+    padding: 10px;
+}
+
+.display-grid {
+    background-color: var(--color-text-secondary);
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+    border: solid var(--color-text-primary) 1px;
+}
+
+.container-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    grid-template-areas: 
+        "head head head"
+        "aside section section"
+        "aside article article"
+        "footer footer footer"
+    ;
+
+    width: auto;
+    height: 500px;
+    border: solid var(--color-text-primary) 0.7px;
+    text-align: center;
+    margin: 10px;
+    font-size: 18px;
+}
+
+header {
+    background-color:darkviolet;
+    grid-area: head;
+}
+
+aside {
+    background-color: seagreen;
+    grid-area: aside;
+}
+
+section {
+    background-color: peru;
+    grid-area: section;
+}
+
+article {
+    background-color: tomato;
+    grid-area: article;
+}
+
+footer {
+    background-color: deepskyblue;
+    grid-area: footer;
+}
+
+@media (max-width: 720px) {
+    .container-1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 2fr);
+        grid-template-areas: 
+            "head"
+            "aside"
+            "section"
+            "article"
+            "footer"
+        ;
+    
+        width: auto;
+        height: 500px;
+        border: solid var(--color-text-primary) 0.7px;
+        text-align: center;
+        margin: 10px;
+        font-size: 18px;
+    }
+}
