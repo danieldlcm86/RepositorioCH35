@@ -1,0 +1,21 @@
+button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: blueviolet;
+    color: floralwhite;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+#reset {
+    background-color: darkred;
+}

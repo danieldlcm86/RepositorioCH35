@@ -1,0 +1,54 @@
+a {
+    text-decoration: none;
+    font-family: 'Karla', sans-serif;
+    color: #2D4B73;
+    font-size: 20px;
+    font-weight: 500;
+    border: dotted crimson 0.2em;   
+}
+
+body {
+    background-color: #0c141e;
+    color: white;
+    font-family: 'Karla', sans-serif;
+}
+
+#card-btn {
+    background-color: coral;
+    border: none;
+    color:lightblue;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#name, #email-input {
+    height: 25px;
+    padding: 5px;
+}
+
+#btn-main {
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.profile {
+    background-color:blueviolet ;
+    border-radius: 5px;
+    border: solid coral 1px;
+    text-align: center;
+    padding: 20px;
+    width: 250px;
+}
